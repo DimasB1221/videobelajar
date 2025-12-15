@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masuk - Web Class</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar glass">
+      <a href="index.html" class="logo">Web Class</a>
+      <div class="nav-buttons">
+        <a href="register.html" class="btn btn-register">Daftar</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="auth-card glass">
+        <div class="auth-header">
+          <h2>Selamat Datang</h2>
+          <p>Silakan masuk ke akun Anda</p>
+        </div>
+        <form action="#">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="nama@email.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Kata Sandi</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="••••••••"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-submit">Masuk</button>
+        </form>
+        <div class="auth-footer">
+          Belum punya akun? <a href="register.html">Daftar di sini</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
