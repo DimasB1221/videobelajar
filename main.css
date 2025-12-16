@@ -52,6 +52,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo {
@@ -76,11 +77,64 @@ ul {
   margin-right: auto;
 }
 
+/* Desktop Nav Links */
+.nav-link {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--primary-orange);
+}
+
+/* Nav Visibility Helpers */
+.mobile-only {
+  display: none;
+}
+.desktop-only {
+  display: flex; /* Restores nav-right flex layout */
+}
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.nav-toggle-label span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--text-dark);
+  margin: 5px 0;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .user-profile img {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
+}
+
+.profile-name {
+  display: none;
+  font-weight: 500;
+  color: var(--text-dark);
 }
 
 /* Buttons */
@@ -202,7 +256,101 @@ footer {
     gap: 2rem;
   }
 
-  .nav-right {
-    gap: 1rem;
+  /* Hide old desktop nav on mobile */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: flex !important; /* Changed from block to flex for alignment */
+    align-items: center;
+  }
+
+  /* Hamburger Menu Styles (Adapted for Right Side) */
+  #menu__toggle {
+    opacity: 0;
+  }
+
+  #menu__toggle:checked + .menu__btn > span {
+    transform: rotate(45deg);
+  }
+
+  #menu__toggle:checked + .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0deg);
+  }
+
+  #menu__toggle:checked + .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  #menu__toggle:checked ~ .menu__box {
+    right: 0 !important; /* Slide in from right */
+  }
+
+  .menu__btn {
+    position: relative; /* Changed from fixed to maintain flow in flex container if needed, or keeping it relative to container */
+    /* If we want it strictly top right of screen, fixed is ok, but typically inside relative container is better. 
+       Let's stick to the container flow since it's inside the navbar */
+    display: flex;
+    align-items: center;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 101; /* Higher than menu box */
+  }
+
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-dark); /* Use theme color */
+    transition-duration: 0.25s;
+  }
+
+  .menu__btn > span::before {
+    content: "";
+    top: -8px;
+  }
+
+  .menu__btn > span::after {
+    content: "";
+    top: 8px;
+  }
+
+  .menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen right */
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: var(--white); /* Use theme white */
+    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+    transition-duration: 0.25s;
+    z-index: 100;
+  }
+
+  .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: var(--text-dark);
+    font-family: "DM Sans", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: 0.25s;
+  }
+
+  .menu__item:hover {
+    background-color: #f0f0f0;
+    color: var(--primary-orange);
   }
 }
