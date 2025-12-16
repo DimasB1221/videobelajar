@@ -1,0 +1,199 @@
+/* Login Page Styles */
+
+/* Reuse variables from main.css for consistency, but we can redeclare or assume they exist since main.css is imported */
+:root {
+  --primary-green: #3ecf4c;
+  --bg-light: #fffcf5;
+  --white: #ffffff;
+  --text-dark: #1e1e1e;
+  --border-color: #e0e0e0;
+  --text-gray: #828282;
+}
+
+body {
+  background-color: var(--bg-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Adjust navbar to be fixed or standard? 
+   The design shows the navbar at top. 
+   login-container should take remaining height and center content. */
+
+.login-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  margin-top: 2rem; /* Account for navbar if needed, or just space */
+}
+
+.login-card {
+  background: var(--white);
+  border: 1px solid var(--border-color); /* Subtle border like in image */
+  border-radius: 8px; /* Slightly rounded corners */
+  padding: 3rem;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.login-header h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  color: var(--text-gray);
+  font-size: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-gray);
+  margin-bottom: 0.5rem;
+}
+
+.form-group label .required {
+  color: #ff4d4f; /* Red asterisk */
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+}
+
+/* Password Input Wrapper for Eye Icon */
+.password-input-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--text-gray);
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* Specific button styles overriding or extending main.css .btn */
+.btn-green {
+  background-color: var(--primary-green);
+  color: white;
+  border: none;
+}
+
+.btn-green:hover {
+  background-color: #35b341;
+  transform: translateY(-1px);
+}
+
+.btn-light-green {
+  background-color: #e8f9e9; /* Light green tint */
+  color: var(--primary-green);
+  font-weight: 600;
+  border: none;
+}
+
+.btn-light-green:hover {
+  background-color: #d4f2d6;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.divider span {
+  padding: 0 10px;
+}
+
+.btn-google {
+  background-color: white;
+  border: 1px solid var(--border-color);
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+}
+
+.btn-google:hover {
+  background-color: #f9f9f9;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 2rem 1.5rem;
+    box-shadow: none; /* Flat on mobile? Or keep it. Design shows simple look */
+    border: none; /* Simplify on very small screens? or keep border */
+    background: transparent; /* Or blend with bg */
+  }
+
+  /* If design implies full width card on mobile, max-width is fine. */
+}
