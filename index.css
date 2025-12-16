@@ -118,7 +118,6 @@
   color: var(--text-gray);
   margin-bottom: 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -133,7 +132,7 @@
 .instructor-img {
   width: 32px;
   height: 32px;
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
 }
 
@@ -234,6 +233,10 @@
 
   .category-tabs {
     overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   .subscribe-form {
